@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -23,4 +23,4 @@ const mapStateToProps = store => ({
   score: store.score.value
 })
 
-export default connect(mapStateToProps, null)(Topbar);
+export default connect(mapStateToProps, null)(Topbar)
