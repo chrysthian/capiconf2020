@@ -47,6 +47,13 @@ const Credits = (props) => {
         <h2>Artwork created by Luis Zuno (@ansimuz)</h2>
         <p> at: <a href='https://ansimuz.itch.io/'>https://ansimuz.itch.io/</a></p>
       </Container>
+
+      <Container>
+        <h2>Stage 1</h2>
+        <a href='https://creativecommons.org/licenses/by/4.0/'>https://creativecommons.org/licenses/by/4.0/</a>
+        <p>by sawsquarenoise</p>
+        <a href='https://freemusicarchive.org/music/sawsquarenoise'>https://freemusicarchive.org/music/sawsquarenoise</a>
+      </Container>
     </div>
   )
 }
