@@ -31,6 +31,10 @@ const Game = Loadable({
   loading: LoadingFunction,
 })
 
+const Credits = Loadable({
+  loader: () => import(/* webpackChunkName: "Credits" */ 'page/Credits'),
+  loading: LoadingFunction,
+})
 
 export class RouteApp extends Component {
   render() {
@@ -40,6 +44,7 @@ export class RouteApp extends Component {
           <Switch>
             <Route exact path='/' component={Main} />
             <Route exact path='/game' component={Game} />
+            <Route exact path='/credits' component={Credits} />
             <Route component={Page404} />
           </Switch>
         </div>

@@ -3,20 +3,30 @@ import music from 'asset/music/bgm.mp3'
 
 class AudioManager {
   constructor() {
-    this.musicVolume = 0.5
-    this.sfxVolume = 0.5
+    this.musicVolume = 0.05
+    this.sfxVolume = 0.05
+
+    this.sound = undefined
   }
 
   bgm = () => {
-    const sound = new Howl({
+    this.sound = new Howl({
       src: [music],
       autoplay: true,
       loop: true,
       volume: this.musicVolume,
       onend: function () {
-        sound.play()
+        this.sound.play()
       }
     })
+  }
+
+  stop = () => {
+    if (this.sound != null) {
+      this.sound.stop();
+      this.sound.unload();
+      this.sound = null;
+    }
   }
 }
 

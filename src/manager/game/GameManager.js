@@ -27,7 +27,6 @@ class GameManager {
     this.pixi = new PIXI.Application(props)
     this.graphics = new PIXI.Graphics()
     this.timer = PIXI.Ticker.shared
-
     this.scene = new GameScene()
 
     this.timer.add(delta => {
@@ -51,8 +50,10 @@ class GameManager {
         const canvas = document.getElementsByTagName("canvas")
         if (canvas.length > 0) {
           this.loader.reset()
+          this.audioManager.stop()
           PIXI.utils.clearTextureCache()
           document.body.removeChild(canvas[0])
+          this.unload()
         }
       }
     })
@@ -71,7 +72,12 @@ class GameManager {
         this.loading = false
       }
     )
+  }
 
+  unload = () => {
+    this.loader.reset()
+    this.scene.reset()
+    this.loading = true
   }
 
   update = () => {

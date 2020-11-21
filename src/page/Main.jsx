@@ -23,7 +23,7 @@ function MainMenu(props) {
       <div className='center vh25 mainBg'>
         <Row className='App-header'>
           <Col span={6}></Col>
-          <Col span={12}>CAPICONF YAHOK 2020</Col>
+          <Col span={12}>CAPICONF 2020</Col>
           <Col span={6}></Col>
         </Row>
       </div>
@@ -31,8 +31,9 @@ function MainMenu(props) {
         {menuItem('Start Game', 'primary', false, () => {
           props.history.push(`/game`)
         })}
-
-        {menuItem('Credits', null, false)}
+        {menuItem('Credits', 'primary', false, () => {
+          props.history.push(`/credits`)
+        })}
       </div>
     </span>
   )

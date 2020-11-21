@@ -27,10 +27,11 @@ export class GameScene {
         this.resources = resources
         this.stage = stage
 
-        this.createShip()
-        this.createEnemies()
-
-        this.stage.addChild(this.container)
+        if (!this.ship) {
+          this.createShip()
+          this.createEnemies()
+          this.stage.addChild(this.container)
+        }
       })
 
     if (callback)
@@ -127,6 +128,12 @@ export class GameScene {
 
       this.checkCollisions()
     }
+  }
+
+  reset = () => {
+    this.ship.x = 500
+    this.ship.y = 500
+    this.resetEnemies()
   }
 
   checkCollisions = () => {
