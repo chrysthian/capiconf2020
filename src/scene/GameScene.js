@@ -1,3 +1,4 @@
+import Vector3 from 'core/math/Vector3'
 import * as PIXI from 'pixi.js'
 import ship from 'asset/image/ship.png'
 import enemy from 'asset/image/enemy-big.png'
@@ -137,6 +138,16 @@ export class GameScene {
   }
 
   checkCollisions = () => {
+    const shipPos = new Vector3(this.ship.x, this.ship.y, 0)
+    const enemyPos = new Vector3()
 
+    for (let i = 0, len = ENEMIES; i < len; i++) {
+      enemyPos.set(this.enemies[i].x, this.enemies[i].y, 0)
+      if (enemyPos.distanceTo(shipPos) < 48) {
+        this.resetEnemies()
+        this.score = 0
+        store.dispatch(score(this.score))
+      }
+    }
   }
 }
